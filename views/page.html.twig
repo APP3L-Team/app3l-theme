@@ -1,0 +1,158 @@
+<div id="page-wrapper">
+	<div id="page">
+		
+		
+		<!-- HEADER -->
+		<div id="header">
+			<div class="section clearfix">
+				{% if logo %}
+				<a href="{{ front_page }}" title="{{ t('Home') }}" rel="home" id="logo">
+					<img src="{{ logo }}" alt="{{ t('Home') }}" />
+				</a>
+				{% endif %}
+				
+				{% if site_name or site_slogan %}
+				<div id="name-and-slogan">
+					
+					{{ site_name }}
+					
+					{% if title %}
+					<div id="site-name"><strong><a href="{{front_page }}" title="{{ t('Home') }}" rel="home"><span>{{ site_name }}</span></a></strong></div>
+					{% else %}
+					<h1 id="site-name"><a href="{{ front_page }}" title="{{ t('Home') }}" rel="home"><span>{{ site_name }}</span></a></h1>
+					{% endif %}
+					
+					{% if site_slogan %}
+					<div id="site-slogan">
+						{{ site_slogan }}
+					</div>
+					{% endif %}
+					
+				</div>
+				<!-- /#name-and-slogan -->
+				{% endif %}
+				
+				{{ render(regions.header) | raw }}
+			</div>
+		</div>
+
+		<!-- HEADER END -->
+		
+		
+		<!-- NAVIGATION -->
+
+		{% if main_menu or secondary_menu %}
+		<div id="navigation">
+			<div class="section">
+				{{ theme(
+					'links__system_main_menu',
+					{
+						'links':main_menu,
+						'attributes': { 'id':'main-menu', 'class':['links', 'inline', 'clearfix'] },
+						'heading': t('Main menu')
+					}
+				) | raw }}
+				{{ theme(
+					'links__system_secondary_menu',
+					{
+						'links': secondary_menu,
+						'attributes': { 'id': 'secondary-menu', 'class': ['links', 'inline', 'clearfix'] },
+						'heading': t('Secondary menu')
+					}
+				) | raw }}
+				{{ secondary_menu_html | raw }}
+			</div>
+		</div>
+		{% endif %}
+
+		<!-- NAVIGATION END -->
+		
+		
+		<!-- BREADCRUMB -->
+		
+		{% if breadcrumb %}
+		<div id="breadcrumb">
+			{{ breadcrumb | raw }}
+		</div>
+		{% endif %}
+		
+		<!-- BREADCRUMB END -->
+		
+		
+		<!-- MESSAGES -->
+
+		{{ messages | raw }}
+		
+		<!-- MESSAGES -->
+
+		
+		<!-- MAIN -->
+		
+		<div id="main-wrapper">
+			<div id="main" class="clearfix">
+				
+				<div id="content" class="column">
+					<div class="section">
+						{% if page.highlighted %}
+						<div id="highlighted">
+							{{ render(page.highlighted) | raw }}
+						</div>
+						{% endif %}
+						<a id="main-content"></a>
+						{{  render(title_prefix) }}
+						{% if title %}<h1 class="title" id="page-title"> {{ title }}</h1>{% endif %}
+						{{ render(title_suffix) | raw }}
+						{% if tabs %}
+						<div class="tabs">
+							{{ render(tabs) | raw }}
+						</div>
+						{% endif %}
+						{{ render(page.help) | raw }}
+						{% if (action_links) %}
+						<ul class="action-links">
+							{{ render(action_links) | raw }}
+						</ul>
+						{% endif %}
+						{{ render(page.content) | raw }}
+						{{ feed_icons | raw }}
+					</div>
+				</div>
+				<!-- /.section, /#content -->
+				
+				{% if page.sidebar_first %}
+				<div id="sidebar-first" class="column sidebar">
+					<div class="section">
+						{{ render(page.sidebar_first) | raw }}
+					</div>
+				</div>
+				<!-- /.section, /#sidebar-first -->
+				{% endif %}
+				
+				{% if page.sidebar_second %}
+				<div id="sidebar-second" class="column sidebar">
+					<div class="section">
+						{{ render(page.sidebar_second) | raw }}
+					</div>
+				</div>
+				<!-- /.section, /#sidebar-second -->
+				{% endif %}
+				
+			</div>
+		</div>
+		
+		<!-- MAIN END -->
+
+		
+		<!-- FOOTER -->
+		
+		<div id="footer">
+			<div class="section">
+				{{ render(page.footer) | raw }}
+			</div>
+		</div>
+		
+		<!-- FOOTER END -->
+		
+		
+	</div>
+</div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html version="HTML+RDFa 1.1" lang="{{ language.language }}" dir="{{ language.dir }}" {{ rdf_namespaces }} >
+	<head profile="{{ grddl_profile }}">
+		{{ head | raw }}
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>{{ head_title }}</title>
+		
+		{{ styles | raw }}
+
+	</head>
+	<body class="{{ classes }} container" {{ attributes }}>
+		
+		
+		<!-- PAGE TOP -->
+		
+		<div id="page_top" >
+			{{ page_top | raw }}
+		</div>
+		
+		
+		<!-- PAGE -->
+		
+		<div id="page">
+			{{ page | raw }}
+		</div>
+		
+		
+		<!-- PAGE BOTTOM -->
+		
+		<div id="page_bottom">
+			{{ page_bottom | raw }}
+		</div>
+		
+		{{ scripts | raw }}
+	</body>
+</html>
