@@ -13,9 +13,7 @@
 				
 				{% if site_name or site_slogan %}
 				<div id="name-and-slogan">
-					
-					{{ site_name }}
-					
+										
 					{% if title %}
 					<div id="site-name"><strong><a href="{{front_page }}" title="{{ t('Home') }}" rel="home"><span>{{ site_name }}</span></a></strong></div>
 					{% else %}
@@ -47,7 +45,7 @@
 				{{ theme(
 					'links__system_main_menu',
 					{
-						'links':main_menu,
+						'links': main_menu,
 						'attributes': { 'id':'main-menu', 'class':['links', 'inline', 'clearfix'] },
 						'heading': t('Main menu')
 					}
