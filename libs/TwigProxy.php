@@ -2,7 +2,7 @@
 
 namespace libs;
 
-class TwigManager {
+class TwigProxy {
 	
 	public static $themeRoot;
 	public static $viewsRoot;
