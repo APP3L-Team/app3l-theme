@@ -2,7 +2,7 @@ name = APP3L
 description = Theme of the App3l website.
 version = 0.10
 core = 7.x
-engine = phptemplate
+engine = twigtemplate
 
 stylesheets[all][] = resources/css/bootstrap.css
 stylesheets[all][] = resources/css/bootstrap-theme.css
