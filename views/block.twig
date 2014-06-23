@@ -2,11 +2,11 @@
 
 {{ render(title_prefix) }}
 {# if block.subject #}
-<h2{{ title_attributes }}>{{ block.subject }}</h2>
+<h2 {{ title_attributes }}>{{ block.subject }}</h2>
 {# endif #}
-	{{ render(title_suffix) | raw }}
+{{ render(title_suffix) }}
 
 <div class="content"{{ content_attributes }}>
-{{ content | raw }}
+{{ content }}
 </div>
 </div>

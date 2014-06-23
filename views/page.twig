@@ -30,7 +30,7 @@
 				<!-- /#name-and-slogan -->
 				{% endif %}
 				
-				{{ render(regions.header) | raw }}
+				{{ render(regions.header) }}
 			</div>
 		</div>
 
@@ -49,7 +49,7 @@
 						'attributes': { 'id':'main-menu', 'class':['links', 'inline', 'clearfix'] },
 						'heading': t('Main menu')
 					}
-				) | raw }}
+				) }}
 				{{ theme(
 					'links__system_secondary_menu',
 					{
@@ -57,7 +57,7 @@
 						'attributes': { 'id': 'secondary-menu', 'class': ['links', 'inline', 'clearfix'] },
 						'heading': t('Secondary menu')
 					}
-				) | raw }}
+				) }}
 			</div>
 		</div>
 		{% endif %}
@@ -69,7 +69,7 @@
 		
 		{% if breadcrumb %}
 		<div id="breadcrumb">
-			{{ breadcrumb | raw }}
+			{{ breadcrumb }}
 		</div>
 		{% endif %}
 		
@@ -78,7 +78,7 @@
 		
 		<!-- MESSAGES -->
 
-		{{ messages | raw }}
+		{{ messages }}
 		
 		<!-- MESSAGES -->
 
@@ -92,26 +92,26 @@
 					<div class="section">
 						{% if page.highlighted %}
 						<div id="highlighted">
-							{{ render(page.highlighted) | raw }}
+							{{ render(page.highlighted) }}
 						</div>
 						{% endif %}
 						<a id="main-content"></a>
 						{{  render(title_prefix) }}
 						{% if title %}<h1 class="title" id="page-title"> {{ title }}</h1>{% endif %}
-						{{ render(title_suffix) | raw }}
+						{{ render(title_suffix) }}
 						{% if tabs %}
 						<div class="tabs">
-							{{ render(tabs) | raw }}
+							{{ render(tabs) }}
 						</div>
 						{% endif %}
-						{{ render(page.help) | raw }}
+						{{ render(page.help) }}
 						{% if (action_links) %}
 						<ul class="action-links">
-							{{ render(action_links) | raw }}
+							{{ render(action_links) }}
 						</ul>
 						{% endif %}
-						{{ render(page.content) | raw }}
-						{{ feed_icons | raw }}
+						{{ render(page.content) }}
+						{{ feed_icons }}
 					</div>
 				</div>
 				<!-- /.section, /#content -->
@@ -119,7 +119,7 @@
 				{% if page.sidebar_first %}
 				<div id="sidebar-first" class="column sidebar">
 					<div class="section">
-						{{ render(page.sidebar_first) | raw }}
+						{{ render(page.sidebar_first) }}
 					</div>
 				</div>
 				<!-- /.section, /#sidebar-first -->
@@ -128,7 +128,7 @@
 				{% if page.sidebar_second %}
 				<div id="sidebar-second" class="column sidebar">
 					<div class="section">
-						{{ render(page.sidebar_second) | raw }}
+						{{ render(page.sidebar_second) }}
 					</div>
 				</div>
 				<!-- /.section, /#sidebar-second -->
@@ -144,7 +144,7 @@
 		
 		<div id="footer">
 			<div class="section">
-				{{ render(page.footer) | raw }}
+				{{ render(page.footer) }}
 			</div>
 		</div>
 		
