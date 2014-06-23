@@ -1,0 +1,33 @@
+<table id="forum-topic-{{ topic_id }}" class="table table-striped table-bordered table-hover">
+	<thead>
+		<tr>{{ header }}</tr>
+	</thead>
+	<tbody>
+		{% for topic in topics %}
+		<tr class="{{ topic.zebra }}">
+			<td class="icon">{{ topic.icon }}</td>
+			<td class="title">
+				<div>
+					{{ topic.title }}
+				</div>
+				<div>
+					{{ topic.created }}
+				</div>
+			</td>
+			{% if topic.moved %}
+			<td colspan="3">{{ topic.message }}</td>
+			{% else %}
+			<td class="replies">
+				{{ topic.comment_count }}
+				{% if topic.new_replies %}
+				<br />
+				<a href="{{ topic.new_url }}">{{ topic.new_text }}</a>
+				{% endif %}
+			</td>
+			<td class="last-reply">{{ topic.last_reply }}</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{{ pager }}

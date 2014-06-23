@@ -1,0 +1,40 @@
+<table id="forum-{{ forum_id }}" class="table table-striped table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>{{ t('Forum') }}</th>
+			<th>{{ t('Topics') }}</th>
+			<th>{{ t('Posts') }}</th>
+			<th>{{ t('Last post') }}</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for child_id, forum in forums %}
+		<tr id="forum-list-{{ child_id }}" class="{{ forum.zebra }}">
+			<td {{ forum.is_container ? 'colspan="4" class="container"' : 'class="forum"' }}>
+				
+				{{ '<div class="indent">' | repeat(forum.depth) }}
+					<div class="icon forum-status-{{ forum.icon_class }}" title="{{ forum.icon_title }}">
+						<span class="element-invisible">{{ forum.icon_title }}</span>
+					</div>
+					<div class="name"><a href="{{ forum.link }}">{{ forum.name }}</a></div>
+					{% if forum.description %}
+						<div class="description">{{ forum.description }}</div>
+					{% endif %}
+				{{ '</div>' | repeat(forum.depth) }}
+				
+			</td>
+			{% if not forum.is_container %}
+				<td class="topics">
+					{{ forum.num_topics }}
+					{% if forum.new_topics %}
+					<br />
+					<a href="{{ forum.new_url }}">{{ forum.new_text }}</a>
+					{% endif %}
+				</td>
+				<td class="posts">{{ forum.num_posts }}</td>
+				<td class="last-reply">{{ forum.last_reply }}</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
